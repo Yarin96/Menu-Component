@@ -24,7 +24,7 @@ namespace Ex04.Menus.Interfaces
             }
             else
             {
-                throw new FormatException("input is not a valid Menu choice (Not a number). Press Enter to try again.");
+                throw new FormatException("input is not a valid Menu choice. Press Enter to try again.");
             }
 
             if (userChoice != 0)

@@ -22,11 +22,6 @@ namespace Ex04.Menus.Interfaces
             m_MenuItems.Add(new MenuItem(i_ItemMethodName));
         }
 
-        internal void addItemAsMenu(MenuItem i_MenuItem)
-        {
-            m_MenuItems.Add(i_MenuItem);
-        }
-
         string IMenuItemDetails.MenuItemName
         {
             get { return m_MenuItemName; }
