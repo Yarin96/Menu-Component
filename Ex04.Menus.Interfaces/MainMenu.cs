@@ -29,7 +29,7 @@ namespace Ex04.Menus.Interfaces
 
                 do
                 {
-                    Console.WriteLine(printMenu());
+                    Console.Write(printMenu());
                     userInput = Console.ReadLine();
 
                     if (userInput == "0")
@@ -37,7 +37,7 @@ namespace Ex04.Menus.Interfaces
                         break;
                     }
 
-                    userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems);
+                    userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems.Count);
 
                     if (m_CurrentMenuItems[userMenuChoice].m_IsItemMethod)
                     {
@@ -68,22 +68,22 @@ namespace Ex04.Menus.Interfaces
             }
             catch (FormatException i_FormatException)
             {
-                Console.Clear();
                 string errorMessage = string.Format(
-                    "-> Error Message: {0}" +
-                    Environment.NewLine,
+                    "-> Error Message: {0}",
                     i_FormatException.Message);
                 Console.WriteLine(errorMessage);
+                Console.ReadLine();
+                Console.Clear();
                 Show();
             }
             catch (ArgumentOutOfRangeException i_ArgumentOutOfRangeException)
             {
-                Console.Clear();
                 string errorMessage = string.Format(
-                    "-> Error Message: {0}" +
-                    Environment.NewLine,
-                    i_ArgumentOutOfRangeException.Message);
+                    "-> Error Message: {0} is out of the Menu options range. Press Enter to try again.",
+                    i_ArgumentOutOfRangeException.ParamName);
                 Console.WriteLine(errorMessage);
+                Console.ReadLine();
+                Console.Clear();
                 Show();
             }
         }
