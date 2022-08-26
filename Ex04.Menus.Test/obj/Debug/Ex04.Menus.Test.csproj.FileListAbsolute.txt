@@ -1,0 +1,11 @@
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Test.exe
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Test.pdb
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Delegates.dll
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Interfaces.dll
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Delegates.pdb
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Interfaces.pdb
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.CopyComplete
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.exe
+C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.pdb
