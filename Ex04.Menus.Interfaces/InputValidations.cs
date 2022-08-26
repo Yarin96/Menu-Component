@@ -7,7 +7,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class InputValidations
     {
-        internal static int CheckIfValidMenuChoice(string i_UserMenuChoice, List<MenuItem> i_MenuItems)
+        internal static int CheckIfValidMenuChoice(string i_UserMenuChoice, List<MenuItem> i_MenuItems) /// Check maybe change the second argument to just int?
         {
             int userChoice = 0;
 
@@ -19,12 +19,12 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Input is not a valid Menu choice.");
+                    throw new ArgumentOutOfRangeException("Input is not a valid Menu choice (Out of possible range).");
                 }
             }
             else
             {
-                throw new FormatException("Input is not a valid Menu choice.");
+                throw new FormatException("Input is not a valid Menu choice (Not a number).");
             }
 
             if (userChoice != 0)

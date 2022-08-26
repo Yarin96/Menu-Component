@@ -41,8 +41,6 @@
     <Compile Include="MainMenu.cs" />
     <Compile Include="IMenuItemDetails.cs" />
     <Compile Include="MenuItem.cs" />
-    <Compile Include="SubMenu.cs" />
-    <Compile Include="IMenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

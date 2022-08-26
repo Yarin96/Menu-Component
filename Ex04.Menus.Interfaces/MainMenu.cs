@@ -68,17 +68,23 @@ namespace Ex04.Menus.Interfaces
             }
             catch (FormatException i_FormatException)
             {
+                Console.Clear();
                 string errorMessage = string.Format(
-                    "-> Error Message: {0}",
+                    "-> Error Message: {0}" +
+                    Environment.NewLine,
                     i_FormatException.Message);
                 Console.WriteLine(errorMessage);
+                Show();
             }
             catch (ArgumentOutOfRangeException i_ArgumentOutOfRangeException)
             {
+                Console.Clear();
                 string errorMessage = string.Format(
-                    "-> Error Message: {0}",
+                    "-> Error Message: {0}" +
+                    Environment.NewLine,
                     i_ArgumentOutOfRangeException.Message);
                 Console.WriteLine(errorMessage);
+                Show();
             }
         }
 
