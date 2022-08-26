@@ -20,19 +20,6 @@ namespace Ex04.Menus.Interfaces
             m_CurrentMenuDetailsMessage = new StringBuilder();
         }
 
-        //public void DefineAndRunMenu()
-        //{
-        //    MenuItem showDateAndTime = new MenuItem("Show Date/Time");
-        //    showDateAndTime.addItemToMenu("Show Time");
-        //    showDateAndTime.addItemToMenu("Show Date");
-        //    MenuItem showVersionAndSpaces = new MenuItem("Version and Spaces");
-        //    showVersionAndSpaces.addItemToMenu("Show Version");
-        //    showVersionAndSpaces.addItemToMenu("Count Spaces");
-        //    m_CurrentMenuItems.Add(showDateAndTime);
-        //    m_CurrentMenuItems.Add(showVersionAndSpaces);
-        //    Show();
-        //}
-
         public void Show()
         {
             try
@@ -95,7 +82,7 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public string printMenu()
+        private string printMenu()
         {
             m_CurrentMenuDetailsMessage.Clear();
             string exitOrBackMessage = m_CurrentMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
