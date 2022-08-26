@@ -2,6 +2,8 @@
 {
     public interface IMenuItemDetails
     {
+        // void ActivateMethod();
+        // void OpenNewMenu();
         string MenuItemName
         {
             get; set;

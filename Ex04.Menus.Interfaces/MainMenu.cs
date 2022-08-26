@@ -6,31 +6,32 @@ namespace Ex04.Menus.Interfaces
 {
     public class MainMenu
     {
-        private string m_MainMenuTitle;
+        private string m_CurrentMenuTitle;
         private string m_PrevMenuTitle;
-        private List<MenuItem> m_MenuItems;
+        internal List<MenuItem> m_CurrentMenuItems;
         private List<MenuItem> m_PrevMenuItems;
-        private StringBuilder m_CurrentMenuDetails = new StringBuilder();
+        private StringBuilder m_CurrentMenuDetailsMessage;
 
-        public MainMenu(string i_MainMenuTitle, int i_MenuItemLevel)
+        public MainMenu(string i_MainMenuTitle)
         {
-               m_MenuItems = new List<MenuItem>();
-               m_PrevMenuItems = new List<MenuItem>();
-               m_MainMenuTitle = i_MainMenuTitle;
+            m_CurrentMenuTitle = i_MainMenuTitle;
+            m_CurrentMenuItems = new List<MenuItem>();
+            m_PrevMenuItems = new List<MenuItem>();
+            m_CurrentMenuDetailsMessage = new StringBuilder();
         }
 
-        public void DefineAndRunMenu()
-        {
-            MenuItem showDateAndTime = new MenuItem("Show Date/Time");
-            showDateAndTime.addItemToMenu("Show Time");
-            showDateAndTime.addItemToMenu("Show Date");
-            MenuItem showVersionAndSpaces = new MenuItem("Version and Spaces");
-            showVersionAndSpaces.addItemToMenu("Show Version");
-            showVersionAndSpaces.addItemToMenu("Count Spaces");
-            m_MenuItems.Add(showDateAndTime);
-            m_MenuItems.Add(showVersionAndSpaces);
-            Show();
-        }
+        //public void DefineAndRunMenu()
+        //{
+        //    MenuItem showDateAndTime = new MenuItem("Show Date/Time");
+        //    showDateAndTime.addItemToMenu("Show Time");
+        //    showDateAndTime.addItemToMenu("Show Date");
+        //    MenuItem showVersionAndSpaces = new MenuItem("Version and Spaces");
+        //    showVersionAndSpaces.addItemToMenu("Show Version");
+        //    showVersionAndSpaces.addItemToMenu("Count Spaces");
+        //    m_CurrentMenuItems.Add(showDateAndTime);
+        //    m_CurrentMenuItems.Add(showVersionAndSpaces);
+        //    Show();
+        //}
 
         public void Show()
         {
@@ -49,32 +50,32 @@ namespace Ex04.Menus.Interfaces
                         break;
                     }
 
-                    userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_MenuItems);
+                    userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems);
 
-                    if (m_MenuItems[userMenuChoice].m_IsItemMethod)
+                    if (m_CurrentMenuItems[userMenuChoice].m_IsItemMethod)
                     {
                         return;
                     }
                     else
                     {
                         Console.Clear();
-                        m_PrevMenuItems = m_MenuItems;
-                        m_PrevMenuTitle = m_MainMenuTitle;
-                        m_MainMenuTitle = m_MenuItems[userMenuChoice].m_MenuItemName;
-                        m_MenuItems = m_MenuItems[userMenuChoice].m_MenuItems;
+                        m_PrevMenuItems = m_CurrentMenuItems;
+                        m_PrevMenuTitle = m_CurrentMenuTitle;
+                        m_CurrentMenuTitle = m_CurrentMenuItems[userMenuChoice].m_MenuItemName;
+                        m_CurrentMenuItems = m_CurrentMenuItems[userMenuChoice].m_MenuItems;
                     }
                 }
                 while (true);
 
-                if (m_MainMenuTitle == "Interfaces Main Menu")
+                if (m_CurrentMenuTitle == "Interfaces Main Menu")
                 {
                     exitProgram();
                 }
                 else
                 {
                     Console.Clear();
-                    m_MenuItems = m_PrevMenuItems;
-                    m_MainMenuTitle = m_PrevMenuTitle;
+                    m_CurrentMenuItems = m_PrevMenuItems;
+                    m_CurrentMenuTitle = m_PrevMenuTitle;
                     Show();
                 }
             }
@@ -96,21 +97,21 @@ namespace Ex04.Menus.Interfaces
 
         public string printMenu()
         {
-            m_CurrentMenuDetails.Clear();
-            string exitOrBackMessage = m_MainMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
-            m_CurrentMenuDetails.AppendLine(string.Format("**{0}**", m_MainMenuTitle));
-            m_CurrentMenuDetails.AppendLine("--------------------");
+            m_CurrentMenuDetailsMessage.Clear();
+            string exitOrBackMessage = m_CurrentMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("**{0}**", m_CurrentMenuTitle));
+            m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
 
-            for (int i = 0; i < m_MenuItems.Count; i++)
+            for (int i = 0; i < m_CurrentMenuItems.Count; i++)
             {
-                m_CurrentMenuDetails.AppendLine(string.Format(i + 1 + " -> " + m_MenuItems[i].m_MenuItemName));
+                m_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].m_MenuItemName));
             }
 
-            m_CurrentMenuDetails.AppendLine(string.Format("0 -> {0}", exitOrBackMessage));
-            m_CurrentMenuDetails.AppendLine("--------------------");
-            m_CurrentMenuDetails.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_MenuItems.Count, exitOrBackMessage));
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("0 -> {0}", exitOrBackMessage));
+            m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
 
-            return m_CurrentMenuDetails.ToString();
+            return m_CurrentMenuDetailsMessage.ToString();
         }
 
         private void exitProgram()

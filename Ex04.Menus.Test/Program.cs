@@ -7,8 +7,8 @@ namespace Ex04.Menus.Test
     {
         public static void Main(string[] args)
         {
-            new Interfaces.MainMenu("Interfaces Main Menu", 0).DefineAndRunMenu();
-            /// new Delegates.MenuCreation("Delegates Main Menu").DefineAndRunMenu();
+            new Interfaces.ConsoleApp().InitApp();
+            /// new Delegates.ConsoleApp().InitApp();
         }
     }
 }
