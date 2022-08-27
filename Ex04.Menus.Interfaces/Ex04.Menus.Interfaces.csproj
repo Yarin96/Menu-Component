@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Ex04.Menus.Interfaces</RootNamespace>
     <AssemblyName>Ex04.Menus.Interfaces</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -39,8 +39,8 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Actions.cs" />
-    <Compile Include="ConsoleApp.cs" />
+    <Compile Include="IMenuMethods.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="InputValidations.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="IMenuItemDetails.cs" />

@@ -2,15 +2,15 @@
 
 namespace Ex04.Menus.Interfaces
 {
-    internal class Actions
+    internal class Methods
     {
-        internal static void countSpaces()
+        internal static void CountSpacesOfSentence()
         {
             int numOfSpacesInSentence = 0;
-            Console.WriteLine("Please enter a string:");
-            string input = Console.ReadLine();
+            Console.WriteLine("Please type your sentence:");
+            string userSentenceInput = Console.ReadLine();
 
-            foreach(char character in input)
+            foreach(char character in userSentenceInput)
             {
                 if(character == ' ')
                 {
@@ -22,19 +22,19 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine(output);
         }
 
-        internal static void showVersion()
+        internal static void ShowVersion()
         {
             Console.WriteLine("Version: 22.3.4.8650");
         }
 
-        internal static void showTime()
+        internal static void ShowTime()
         {
             DateTime currentTime = DateTime.Now;
             string output = $"The current time is {currentTime:HH:mm:ss tt}.";
             Console.WriteLine(output);
         }
 
-        internal static void showDate()
+        internal static void ShowDate()
         {
             DateTime currentDate = DateTime.UtcNow;
             string output = $"The current date is {currentDate.Date:d}.";

@@ -8,9 +8,9 @@ namespace Ex04.Menus.Interfaces
     {
         private string m_CurrentMenuTitle;
         private string m_PrevMenuTitle;
-        internal List<MenuItem> m_CurrentMenuItems;
-        private List<MenuItem> m_PrevMenuItems;
         private StringBuilder m_CurrentMenuDetailsMessage;
+        private List<MenuItem> m_PrevMenuItems;
+        private List<MenuItem> m_CurrentMenuItems;
 
         public MainMenu(string i_MainMenuTitle)
         {
@@ -20,48 +20,61 @@ namespace Ex04.Menus.Interfaces
             m_CurrentMenuDetailsMessage = new StringBuilder();
         }
 
-        private static void exitProgram()
+        public void AddItemToMainMenu(MenuItem i_MenuItem)
         {
-            Console.Write("Press Enter to Exit...   ");
-            Console.ReadLine();
+            m_CurrentMenuItems.Add(i_MenuItem);
         }
 
         public void Show()
         {
             try
             {
+                string userInput = string.Empty;
+                int userMenuChoice = 0;
+
                 do
                 {
                     Console.Write(printMenu());
-                    string userInput = Console.ReadLine();
+                    userInput = Console.ReadLine();
 
                     if (userInput == "0")
                     {
                         break;
                     }
 
-                    int userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems.Count);
+                    userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems.Count);
 
                     if (m_CurrentMenuItems[userMenuChoice].m_IsItemMethod)
                     {
-                        Console.Write(Environment.NewLine);
-                        switch(m_CurrentMenuItems[userMenuChoice].m_MenuItemName)
+                        Console.Clear();
+                        switch (m_CurrentMenuItems[userMenuChoice].m_MenuItemName)
                         {
                             case "Show Time":
-                                Actions.showTime();
-                                break;
+                                {
+                                    Methods.ShowTime();
+                                    break;
+                                }
+
                             case "Show Date":
-                                Actions.showDate();
-                                break;
+                                {
+                                    Methods.ShowDate();
+                                    break;
+                                }
+
                             case "Show Version":
-                                Actions.showVersion();
-                                break;
+                                {
+                                    Methods.ShowVersion();
+                                    break;
+                                }
+
                             case "Count Spaces":
-                                Actions.countSpaces();
-                                break;
+                                {
+                                    Methods.CountSpacesOfSentence();
+                                    break;
+                                }
                         }
 
-                        Console.WriteLine(Environment.NewLine + "Press enter to return..");
+                        Console.WriteLine(Environment.NewLine + "Press 'Enter' to return...");
                         Console.ReadLine();
                         Console.Clear();
                     }
@@ -90,7 +103,7 @@ namespace Ex04.Menus.Interfaces
             }
             catch (FormatException i_FormatException)
             {
-                string errorMessage = $"-> Error Message: {i_FormatException.Message}";
+                string errorMessage = string.Format("-> Error Message: {0}", i_FormatException.Message);
                 Console.WriteLine(errorMessage);
                 Console.ReadLine();
                 Console.Clear();
@@ -98,8 +111,7 @@ namespace Ex04.Menus.Interfaces
             }
             catch (ArgumentOutOfRangeException i_ArgumentOutOfRangeException)
             {
-                string errorMessage =
-                    $"-> Error Message: {i_ArgumentOutOfRangeException.ParamName} is out of the Menu options range. Press Enter to try again.";
+                string errorMessage = string.Format("-> Error Message: {0} is out of the Menu options range. Press Enter to try again.", i_ArgumentOutOfRangeException.ParamName);
                 Console.WriteLine(errorMessage);
                 Console.ReadLine();
                 Console.Clear();
@@ -107,11 +119,48 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
+        //void IMenuMethods.countSpacesOfSentence()
+        //{
+        //    int numberOfSpacesInSentence = 0;
+        //    Console.WriteLine("Please type yout sentence:");
+        //    string userSentenceInput = Console.ReadLine();
+
+        //    foreach (char character in userSentenceInput)
+        //    {
+        //        if (character == ' ')
+        //        {
+        //            numberOfSpacesInSentence++;
+        //        }
+        //    }
+
+        //    string output = $"The entered sentence has {numberOfSpacesInSentence} spaces in it.";
+        //    Console.WriteLine(output);
+        //}
+
+        //void IMenuMethods.showVersion()
+        //{
+        //    Console.WriteLine("Version: 22.3.4.8650");
+        //}
+
+        //void IMenuMethods.showTime()
+        //{
+        //    DateTime currentTime = DateTime.Now;
+        //    string output = $"The current time is {currentTime:HH:mm:ss tt}.";
+        //    Console.WriteLine(output);
+        //}
+
+        //void IMenuMethods.showDate()
+        //{
+        //    DateTime currentDate = DateTime.UtcNow;
+        //    string output = $"The current date is {currentDate.Date:d}.";
+        //    Console.WriteLine(output);
+        //}
+
         private string printMenu()
         {
             m_CurrentMenuDetailsMessage.Clear();
             string exitOrBackMessage = m_CurrentMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
-            m_CurrentMenuDetailsMessage.AppendLine($"**{m_CurrentMenuTitle}**");
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("**{0}**", m_CurrentMenuTitle));
             m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
 
             for (int i = 0; i < m_CurrentMenuItems.Count; i++)
@@ -121,10 +170,15 @@ namespace Ex04.Menus.Interfaces
 
             m_CurrentMenuDetailsMessage.AppendLine($"0 -> {exitOrBackMessage}");
             m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
-            m_CurrentMenuDetailsMessage.AppendLine(
-                $"Enter your request: (1 to {m_CurrentMenuItems.Count} or press '0' to {exitOrBackMessage}).");
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
 
             return m_CurrentMenuDetailsMessage.ToString();
+        }
+
+        private void exitProgram()
+        {
+            Console.Write("Press 'Enter' to exit the program...");
+            Console.ReadLine();
         }
     }
 }
