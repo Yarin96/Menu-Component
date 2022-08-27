@@ -7,7 +7,7 @@ namespace Ex04.Menus.Test
     {
         public static void Main(string[] args)
         {
-            new Interfaces.ConsoleApp().InitApp();
+            new ConsoleApp().InitApp();
             /// new Delegates.ConsoleApp().InitApp();
         }
     }

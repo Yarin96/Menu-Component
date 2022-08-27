@@ -9,3 +9,16 @@ C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.CopyComplete
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.exe
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Test.exe.config
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Test.exe
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Test.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Delegates.dll
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Interfaces.dll
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Delegates.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\bin\Debug\Ex04.Menus.Interfaces.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.AssemblyReference.cache
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.SuggestedBindingRedirects.cache
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.CoreCompileInputs.cache
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.csproj.CopyComplete
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.exe
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Test\obj\Debug\Ex04.Menus.Test.pdb

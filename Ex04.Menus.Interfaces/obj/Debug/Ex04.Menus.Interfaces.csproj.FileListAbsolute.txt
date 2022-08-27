@@ -4,3 +4,9 @@ C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Interfaces\bin\Debug\Ex04.Menus.Interfaces.pdb
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.dll
 C:\Users\USER\source\repos\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\C22 Ex04 Yarin 207128091 Ben 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\bin\Debug\Ex04.Menus.Interfaces.dll
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\bin\Debug\Ex04.Menus.Interfaces.pdb
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.csproj.AssemblyReference.cache
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.csproj.CoreCompileInputs.cache
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.dll
+D:\Softwares\programming softwares\C# exe\EXE4\C22 Ex04 YarinBar 207128091 BenDaniels 316582295\Ex04.Menus.Interfaces\obj\Debug\Ex04.Menus.Interfaces.pdb
