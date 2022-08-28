@@ -39,8 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IMenuMethods.cs" />
-    <Compile Include="Methods.cs" />
+    <Compile Include="IMenuMethod.cs" />
     <Compile Include="InputValidations.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="IMenuItemDetails.cs" />

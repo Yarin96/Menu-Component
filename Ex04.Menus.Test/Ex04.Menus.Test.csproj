@@ -52,7 +52,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ConsoleApp.cs" />
+    <Compile Include="CountSpacesOfSentenceMethod.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ShowDateMethod.cs" />
+    <Compile Include="ShowTimeMethod.cs" />
+    <Compile Include="ShowVersionMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

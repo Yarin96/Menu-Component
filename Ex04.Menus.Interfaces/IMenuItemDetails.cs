@@ -1,6 +1,6 @@
 ﻿namespace Ex04.Menus.Interfaces
 {
-    public interface IMenuItemDetails
+    internal interface IMenuItemDetails
     {
         string MenuItemName
         {

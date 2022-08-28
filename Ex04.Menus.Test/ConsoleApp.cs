@@ -19,14 +19,14 @@ namespace Ex04.Menus.Test
         private void buildAppMainMenuWithInterfaces()
         {
             m_MainMenu = new Interfaces.MainMenu("Interfaces Main Menu");
-            m_ShowDateAndTime = new Interfaces.MenuItem("Show Date/Time", !v_DefineMenuItemAsMethod);
-            m_ShowDateAndTime.AddItemToMenu("Show Time", v_DefineMenuItemAsMethod);
-            m_ShowDateAndTime.AddItemToMenu("Show Date", v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces = new Interfaces.MenuItem("Version and Spaces", !v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces.AddItemToMenu("Show Version", v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces.AddItemToMenu("Count Spaces", v_DefineMenuItemAsMethod);
-            m_MainMenu.AddItemToMainMenu(m_ShowDateAndTime);
-            m_MainMenu.AddItemToMainMenu(m_ShowVersionAndSpaces);
+            m_ShowDateAndTime = new Interfaces.MenuItem("Show Date/Time", null, !v_DefineMenuItemAsMethod);
+            m_ShowDateAndTime.AddMethodToMenuItem("Show Time", new ShowTimeMethod(), v_DefineMenuItemAsMethod);
+            m_ShowDateAndTime.AddMethodToMenuItem("Show Date", new ShowDateMethod(), v_DefineMenuItemAsMethod);
+            m_ShowVersionAndSpaces = new Interfaces.MenuItem("Version and Spaces", null, !v_DefineMenuItemAsMethod);
+            m_ShowVersionAndSpaces.AddMethodToMenuItem("Show Version", new ShowVersionMethod(), v_DefineMenuItemAsMethod);
+            m_ShowVersionAndSpaces.AddMethodToMenuItem("Count Spaces", new CountSpacesOfSentence(), v_DefineMenuItemAsMethod);
+            m_MainMenu.AddMenuItemToMainMenu(m_ShowDateAndTime);
+            m_MainMenu.AddMenuItemToMainMenu(m_ShowVersionAndSpaces);
             m_MainMenu.Show();
         }
 

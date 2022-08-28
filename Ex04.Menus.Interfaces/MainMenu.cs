@@ -20,7 +20,7 @@ namespace Ex04.Menus.Interfaces
             m_CurrentMenuDetailsMessage = new StringBuilder();
         }
 
-        public void AddItemToMainMenu(MenuItem i_MenuItem)
+        public void AddMenuItemToMainMenu(MenuItem i_MenuItem)
         {
             m_CurrentMenuItems.Add(i_MenuItem);
         }
@@ -34,7 +34,7 @@ namespace Ex04.Menus.Interfaces
 
                 do
                 {
-                    Console.Write(printMenu());
+                    drawMenu();
                     userInput = Console.ReadLine();
 
                     if (userInput == "0")
@@ -44,36 +44,10 @@ namespace Ex04.Menus.Interfaces
 
                     userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems.Count);
 
-                    if (m_CurrentMenuItems[userMenuChoice].m_IsItemMethod)
+                    if (m_CurrentMenuItems[userMenuChoice].IsItemMethod)
                     {
                         Console.Clear();
-                        switch (m_CurrentMenuItems[userMenuChoice].m_MenuItemName)
-                        {
-                            case "Show Time":
-                                {
-                                    Methods.ShowTime();
-                                    break;
-                                }
-
-                            case "Show Date":
-                                {
-                                    Methods.ShowDate();
-                                    break;
-                                }
-
-                            case "Show Version":
-                                {
-                                    Methods.ShowVersion();
-                                    break;
-                                }
-
-                            case "Count Spaces":
-                                {
-                                    Methods.CountSpacesOfSentence();
-                                    break;
-                                }
-                        }
-
+                        m_CurrentMenuItems[userMenuChoice].ActivateMethod();
                         Console.WriteLine(Environment.NewLine + "Press 'Enter' to return...");
                         Console.ReadLine();
                         Console.Clear();
@@ -83,8 +57,8 @@ namespace Ex04.Menus.Interfaces
                         Console.Clear();
                         m_PrevMenuItems = m_CurrentMenuItems;
                         m_PrevMenuTitle = m_CurrentMenuTitle;
-                        m_CurrentMenuTitle = m_CurrentMenuItems[userMenuChoice].m_MenuItemName;
-                        m_CurrentMenuItems = m_CurrentMenuItems[userMenuChoice].m_MenuItems;
+                        m_CurrentMenuTitle = m_CurrentMenuItems[userMenuChoice].MenuItemName;
+                        m_CurrentMenuItems = m_CurrentMenuItems[userMenuChoice].MenuItems;
                     }
                 }
                 while (true);
@@ -95,10 +69,9 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
-                    Console.Clear();
                     m_CurrentMenuItems = m_PrevMenuItems;
                     m_CurrentMenuTitle = m_PrevMenuTitle;
-                    Show();
+                    redrawMenu();
                 }
             }
             catch (FormatException i_FormatException)
@@ -106,57 +79,18 @@ namespace Ex04.Menus.Interfaces
                 string errorMessage = string.Format("-> Error Message: {0}", i_FormatException.Message);
                 Console.WriteLine(errorMessage);
                 Console.ReadLine();
-                Console.Clear();
-                Show();
+                redrawMenu();
             }
             catch (ArgumentOutOfRangeException i_ArgumentOutOfRangeException)
             {
                 string errorMessage = string.Format("-> Error Message: {0} is out of the Menu options range. Press Enter to try again.", i_ArgumentOutOfRangeException.ParamName);
                 Console.WriteLine(errorMessage);
                 Console.ReadLine();
-                Console.Clear();
-                Show();
+                redrawMenu();
             }
         }
 
-        //void IMenuMethods.countSpacesOfSentence()
-        //{
-        //    int numberOfSpacesInSentence = 0;
-        //    Console.WriteLine("Please type yout sentence:");
-        //    string userSentenceInput = Console.ReadLine();
-
-        //    foreach (char character in userSentenceInput)
-        //    {
-        //        if (character == ' ')
-        //        {
-        //            numberOfSpacesInSentence++;
-        //        }
-        //    }
-
-        //    string output = $"The entered sentence has {numberOfSpacesInSentence} spaces in it.";
-        //    Console.WriteLine(output);
-        //}
-
-        //void IMenuMethods.showVersion()
-        //{
-        //    Console.WriteLine("Version: 22.3.4.8650");
-        //}
-
-        //void IMenuMethods.showTime()
-        //{
-        //    DateTime currentTime = DateTime.Now;
-        //    string output = $"The current time is {currentTime:HH:mm:ss tt}.";
-        //    Console.WriteLine(output);
-        //}
-
-        //void IMenuMethods.showDate()
-        //{
-        //    DateTime currentDate = DateTime.UtcNow;
-        //    string output = $"The current date is {currentDate.Date:d}.";
-        //    Console.WriteLine(output);
-        //}
-
-        private string printMenu()
+        private void drawMenu()
         {
             m_CurrentMenuDetailsMessage.Clear();
             string exitOrBackMessage = m_CurrentMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
@@ -165,14 +99,20 @@ namespace Ex04.Menus.Interfaces
 
             for (int i = 0; i < m_CurrentMenuItems.Count; i++)
             {
-                m_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].m_MenuItemName));
+                m_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].MenuItemName));
             }
 
             m_CurrentMenuDetailsMessage.AppendLine($"0 -> {exitOrBackMessage}");
             m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
             m_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
 
-            return m_CurrentMenuDetailsMessage.ToString();
+            Console.WriteLine(m_CurrentMenuDetailsMessage.ToString());
+        }
+
+        private void redrawMenu()
+        {
+            Console.Clear();
+            Show();
         }
 
         private void exitProgram()
