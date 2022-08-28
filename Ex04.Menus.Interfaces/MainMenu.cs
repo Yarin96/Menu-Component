@@ -7,6 +7,7 @@ namespace Ex04.Menus.Interfaces
     public class MainMenu
     {
         private string m_CurrentMenuTitle;
+        private string m_RootMenuTitle;
         private string m_PrevMenuTitle;
         private StringBuilder m_CurrentMenuDetailsMessage;
         private List<MenuItem> m_PrevMenuItems;
@@ -15,6 +16,7 @@ namespace Ex04.Menus.Interfaces
         public MainMenu(string i_MainMenuTitle)
         {
             m_CurrentMenuTitle = i_MainMenuTitle;
+            m_RootMenuTitle = i_MainMenuTitle;
             m_CurrentMenuItems = new List<MenuItem>();
             m_PrevMenuItems = new List<MenuItem>();
             m_CurrentMenuDetailsMessage = new StringBuilder();
@@ -63,7 +65,7 @@ namespace Ex04.Menus.Interfaces
                 }
                 while (true);
 
-                if (m_CurrentMenuTitle == "Interfaces Main Menu")
+                if (m_CurrentMenuTitle == m_RootMenuTitle)
                 {
                     exitProgram();
                 }
@@ -93,7 +95,7 @@ namespace Ex04.Menus.Interfaces
         private void drawMenu()
         {
             m_CurrentMenuDetailsMessage.Clear();
-            string exitOrBackMessage = m_CurrentMenuTitle == "Interfaces Main Menu" ? "Exit" : "Back";
+            string exitOrBackMessage = m_CurrentMenuTitle == m_RootMenuTitle ? "Exit" : "Back";
             m_CurrentMenuDetailsMessage.AppendLine(string.Format("**{0}**", m_CurrentMenuTitle));
             m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
 
