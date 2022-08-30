@@ -1,5 +1,4 @@
-﻿using System;
-using Ex04.Menus.Interfaces;
+﻿using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
@@ -7,9 +6,7 @@ namespace Ex04.Menus.Test
     {
         void IMenuMethod.MenuItemMethod()
         {
-            DateTime currentDate = DateTime.UtcNow;
-            string currentDateMessage = $"The current date is {currentDate.Date:d}.";
-            Console.WriteLine(currentDateMessage);
+            Methods.ShowDate_LaunchedMethod();
         }
     }
 }
