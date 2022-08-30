@@ -46,21 +46,19 @@ namespace Ex04.Menus.Interfaces
 
                     userMenuChoice = InputValidations.CheckIfValidMenuChoice(userInput, m_CurrentMenuItems.Count);
 
-                    if (m_CurrentMenuItems[userMenuChoice].IsItemMethod)
+                    if (m_CurrentMenuItems[userMenuChoice].IsMenuItemMethod)
                     {
                         Console.Clear();
                         m_CurrentMenuItems[userMenuChoice].ActivateMethod();
-                        Console.WriteLine(Environment.NewLine + "Press 'Enter' to return...");
-                        Console.ReadLine();
-                        Console.Clear();
+                        returnToMenu();
                     }
                     else
                     {
-                        Console.Clear();
                         m_PrevMenuItems = m_CurrentMenuItems;
                         m_PrevMenuTitle = m_CurrentMenuTitle;
                         m_CurrentMenuTitle = m_CurrentMenuItems[userMenuChoice].MenuItemName;
                         m_CurrentMenuItems = m_CurrentMenuItems[userMenuChoice].MenuItems;
+                        Console.Clear();
                     }
                 }
                 while (true);
@@ -85,7 +83,7 @@ namespace Ex04.Menus.Interfaces
             }
             catch (ArgumentOutOfRangeException i_ArgumentOutOfRangeException)
             {
-                string errorMessage = string.Format("-> Error Message: {0} is out of the Menu options range. Press Enter to try again.", i_ArgumentOutOfRangeException.ParamName);
+                string errorMessage = string.Format("-> Error Message: {0} is out of the Menu options range. Press 'Enter' to try again.", i_ArgumentOutOfRangeException.ParamName);
                 Console.WriteLine(errorMessage);
                 Console.ReadLine();
                 redrawMenu();
@@ -104,7 +102,7 @@ namespace Ex04.Menus.Interfaces
                 m_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].MenuItemName));
             }
 
-            m_CurrentMenuDetailsMessage.AppendLine($"0 -> {exitOrBackMessage}");
+            m_CurrentMenuDetailsMessage.AppendLine(string.Format("0 -> {0}", exitOrBackMessage));
             m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
             m_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
 
@@ -115,6 +113,13 @@ namespace Ex04.Menus.Interfaces
         {
             Console.Clear();
             Show();
+        }
+
+        private void returnToMenu()
+        {
+            Console.WriteLine(Environment.NewLine + "Press 'Enter' to return to menu...");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         private void exitProgram()

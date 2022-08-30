@@ -39,7 +39,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="InputValidations.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="MenuItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

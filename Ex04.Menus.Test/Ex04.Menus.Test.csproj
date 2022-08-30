@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ConsoleApp.cs" />
     <Compile Include="CountSpacesOfSentenceMethod.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShowDateMethod.cs" />
     <Compile Include="ShowTimeMethod.cs" />

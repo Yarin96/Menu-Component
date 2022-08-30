@@ -1,37 +1,53 @@
-﻿using Ex04.Menus.Interfaces;
+﻿using System;
 using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
     public class ConsoleApp
     {
-        private const bool v_DefineMenuItemAsMethod = true;
-        private Interfaces.MainMenu m_MainMenu;
-        private Interfaces.MenuItem m_ShowDateAndTime;
-        private Interfaces.MenuItem m_ShowVersionAndSpaces;
-
         internal void InitApp()
         {
-            buildAppMainMenuWithInterfaces();
-            buildAppMainMenuWithDelegates();
+            initMenuStructureWithInterfaces();
+            Console.Clear();
+            initMenuStructureWithDelegates();
         }
 
-        private void buildAppMainMenuWithInterfaces()
+        private void initMenuStructureWithInterfaces()
         {
-            m_MainMenu = new Interfaces.MainMenu("Interfaces Main Menu");
-            m_ShowDateAndTime = new Interfaces.MenuItem("Show Date/Time", null, !v_DefineMenuItemAsMethod);
-            m_ShowDateAndTime.AddMethodToMenuItem("Show Time", new ShowTimeMethod(), v_DefineMenuItemAsMethod);
-            m_ShowDateAndTime.AddMethodToMenuItem("Show Date", new ShowDateMethod(), v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces = new Interfaces.MenuItem("Version and Spaces", null, !v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces.AddMethodToMenuItem("Show Version", new ShowVersionMethod(), v_DefineMenuItemAsMethod);
-            m_ShowVersionAndSpaces.AddMethodToMenuItem("Count Spaces", new CountSpacesOfSentence(), v_DefineMenuItemAsMethod);
-            m_MainMenu.AddMenuItemToMainMenu(m_ShowDateAndTime);
-            m_MainMenu.AddMenuItemToMainMenu(m_ShowVersionAndSpaces);
-            m_MainMenu.Show();
+            const bool v_DefineMenuItemAsMethod = true;
+            Interfaces.MenuItem showDateAndTime = new Interfaces.MenuItem("Show Date/Time", null, !v_DefineMenuItemAsMethod);
+            showDateAndTime.AddMethodToMenuItem("Show Time", new ShowTimeMethod(), v_DefineMenuItemAsMethod);
+            showDateAndTime.AddMethodToMenuItem("Show Date", new ShowDateMethod(), v_DefineMenuItemAsMethod);
+            Interfaces.MenuItem showVersionAndSpaces = new Interfaces.MenuItem("Version and Spaces", null, !v_DefineMenuItemAsMethod);
+            showVersionAndSpaces.AddMethodToMenuItem("Show Version", new ShowVersionMethod(), v_DefineMenuItemAsMethod);
+            showVersionAndSpaces.AddMethodToMenuItem("Count Spaces", new CountSpacesOfSentence(), v_DefineMenuItemAsMethod);
+            Interfaces.MainMenu mainMenu = new Interfaces.MainMenu("Interfaces Main Menu");
+            mainMenu.AddMenuItemToMainMenu(showDateAndTime);
+            mainMenu.AddMenuItemToMainMenu(showVersionAndSpaces);
+            mainMenu.Show();
         }
 
-        private void buildAppMainMenuWithDelegates()
+        private void initMenuStructureWithDelegates()
         {
+            const bool v_DefineMenuItemAsMethod = true;
+            Delegates.MenuItem showDateAndTime = new Delegates.MenuItem("Show Date/Time", !v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showTime = new Delegates.MenuItem("Show Time", v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showDate = new Delegates.MenuItem("Show Date", v_DefineMenuItemAsMethod);
+            showTime.LaunchedMethod += Methods.ShowTime_LaunchedMethod;
+            showDate.LaunchedMethod += Methods.ShowDate_LaunchedMethod;
+            showDateAndTime.AddMethodToMenuItem(showTime);
+            showDateAndTime.AddMethodToMenuItem(showDate);
+            Delegates.MenuItem showVersionAndSpaces = new Delegates.MenuItem("Version and Spaces", !v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showVersion = new Delegates.MenuItem("Show Version", v_DefineMenuItemAsMethod);
+            Delegates.MenuItem countSpaces = new Delegates.MenuItem("Count Spaces", v_DefineMenuItemAsMethod);
+            showVersion.LaunchedMethod += Methods.ShowVersion_LaunchedMethod;
+            countSpaces.LaunchedMethod += Methods.CountSpacesOfSentence_LaunchedMethod;
+            showVersionAndSpaces.AddMethodToMenuItem(showVersion);
+            showVersionAndSpaces.AddMethodToMenuItem(countSpaces);
+            Delegates.MainMenu mainMenu = new Delegates.MainMenu("Delegates Main Menu");
+            mainMenu.AddMenuItemToMainMenu(showDateAndTime);
+            mainMenu.AddMenuItemToMainMenu(showVersionAndSpaces);
+            mainMenu.Show();
         }
     }
 }

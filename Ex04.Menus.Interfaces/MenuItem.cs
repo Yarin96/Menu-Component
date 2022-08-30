@@ -9,39 +9,37 @@ namespace Ex04.Menus.Interfaces
         private List<MenuItem> m_MenuItems;
         private IMenuMethod m_MenuItemMethod;
 
-        public MenuItem(string i_MenuItemName, IMenuMethod i_MenuItemMethod, bool i_isMethod)
+        public MenuItem(string i_MenuItemName, IMenuMethod i_MenuItemMethod, bool i_IsMethod)
         {
             m_MenuItems = new List<MenuItem>();
             m_MenuItemName = i_MenuItemName;
             m_MenuItemMethod = i_MenuItemMethod;
-            m_IsItemMethod = i_isMethod;
-        }
-
-        public void AddMethodToMenuItem(string i_ItemMethodName, IMenuMethod i_MenuItemMethod, bool i_isMethod)
-        {
-            m_MenuItems.Add(new MenuItem(i_ItemMethodName, i_MenuItemMethod, i_isMethod));
-        }
-
-        internal void ActivateMethod()
-        {
-            m_MenuItemMethod.MenuItemMethod();
+            m_IsItemMethod = i_IsMethod;
         }
 
         public string MenuItemName
         {
             get { return m_MenuItemName; }
-            set { m_MenuItemName = value; }
         }
 
-        public bool IsItemMethod
+        public bool IsMenuItemMethod
         {
             get { return m_IsItemMethod; }
-            set { m_IsItemMethod = value; }
         }
 
         public List<MenuItem> MenuItems
         {
             get { return m_MenuItems; }
+        }
+
+        public void AddMethodToMenuItem(string i_ItemMethodName, IMenuMethod i_MenuItemMethod, bool i_IsMethod)
+        {
+            m_MenuItems.Add(new MenuItem(i_ItemMethodName, i_MenuItemMethod, i_IsMethod));
+        }
+
+        internal void ActivateMethod()
+        {
+            m_MenuItemMethod.MenuItemMethod();
         }
     }
 }

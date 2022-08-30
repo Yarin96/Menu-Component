@@ -4,12 +4,12 @@
     {
         string MenuItemName
         {
-            get; set;
+            get;
         }
 
-        bool IsItemMethod
+        bool IsMenuItemMethod
         {
-            get; set;
+            get;
         }
     }
 }
