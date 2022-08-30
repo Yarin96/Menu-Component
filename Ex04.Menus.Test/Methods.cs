@@ -4,6 +4,8 @@ namespace Ex04.Menus.Test
 {
     public class Methods
     {
+        private const string k_CurrentAppVersion = "Version: 22.3.4.8650";
+
         public static void CountSpacesOfSentence_LaunchedMethod()
         {
             int numOfSpacesInSentence = 0;
@@ -24,7 +26,7 @@ namespace Ex04.Menus.Test
 
         public static void ShowVersion_LaunchedMethod()
         {
-            Console.WriteLine("Version: 22.3.4.8650");
+            Console.WriteLine(k_CurrentAppVersion);
         }
 
         public static void ShowDate_LaunchedMethod()

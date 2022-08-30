@@ -2,7 +2,7 @@
 
 namespace Ex04.Menus.Delegates
 {
-    public class InputValidations
+    internal class InputValidations
     {
         internal static int CheckIfValidMenuChoice(string i_UserMenuChoice, int i_AmountOfItemsInList)
         {
