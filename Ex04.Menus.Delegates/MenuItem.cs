@@ -8,14 +8,20 @@ namespace Ex04.Menus.Delegates
         public event Action LaunchedMethod;
 
         private string m_MenuItemName;
-        private bool m_IsItemMethod;
+        private bool m_IsMenuItemMethod;
         private List<MenuItem> m_MenuItems;
 
-        public MenuItem(string i_MenuItemName, bool i_IsItemMethod)
+        public MenuItem(string i_MenuItemName, Action i_MethodToInvoke, bool i_IsMenuItemMethod)
         {
             m_MenuItems = new List<MenuItem>();
             m_MenuItemName = i_MenuItemName;
-            m_IsItemMethod = i_IsItemMethod;
+            m_IsMenuItemMethod = i_IsMenuItemMethod;
+            checkIfMenuItemIsMethodAndAddAsListener(i_MethodToInvoke, i_IsMenuItemMethod);
+        }
+
+        private void checkIfMenuItemIsMethodAndAddAsListener(Action i_MethodToInvoke, bool i_IsMenuItemMethod)
+        {
+            LaunchedMethod += i_IsMenuItemMethod ? new Action(i_MethodToInvoke) : null;
         }
 
         public string MenuItemName
@@ -25,7 +31,7 @@ namespace Ex04.Menus.Delegates
 
         public bool IsMenuItemMethod
         {
-            get { return m_IsItemMethod; }
+            get { return m_IsMenuItemMethod; }
         }
 
         public List<MenuItem> MenuItems

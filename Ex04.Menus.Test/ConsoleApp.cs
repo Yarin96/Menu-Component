@@ -1,5 +1,4 @@
 ﻿using System;
-using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
@@ -30,18 +29,14 @@ namespace Ex04.Menus.Test
         private void initMenuStructureWithDelegates()
         {
             const bool v_DefineMenuItemAsMethod = true;
-            Delegates.MenuItem showDateAndTime = new Delegates.MenuItem("Show Date/Time", !v_DefineMenuItemAsMethod);
-            Delegates.MenuItem showTime = new Delegates.MenuItem("Show Time", v_DefineMenuItemAsMethod);
-            Delegates.MenuItem showDate = new Delegates.MenuItem("Show Date", v_DefineMenuItemAsMethod);
-            showTime.LaunchedMethod += Methods.ShowTime_LaunchedMethod;
-            showDate.LaunchedMethod += Methods.ShowDate_LaunchedMethod;
+            Delegates.MenuItem showDateAndTime = new Delegates.MenuItem("Show Date/Time", null, !v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showTime = new Delegates.MenuItem("Show Time", Methods.ShowTime_LaunchedMethod, v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showDate = new Delegates.MenuItem("Show Date", Methods.ShowDate_LaunchedMethod, v_DefineMenuItemAsMethod);
             showDateAndTime.AddMethodToMenuItem(showTime);
             showDateAndTime.AddMethodToMenuItem(showDate);
-            Delegates.MenuItem showVersionAndSpaces = new Delegates.MenuItem("Version and Spaces", !v_DefineMenuItemAsMethod);
-            Delegates.MenuItem showVersion = new Delegates.MenuItem("Show Version", v_DefineMenuItemAsMethod);
-            Delegates.MenuItem countSpaces = new Delegates.MenuItem("Count Spaces", v_DefineMenuItemAsMethod);
-            showVersion.LaunchedMethod += Methods.ShowVersion_LaunchedMethod;
-            countSpaces.LaunchedMethod += Methods.CountSpacesOfSentence_LaunchedMethod;
+            Delegates.MenuItem showVersionAndSpaces = new Delegates.MenuItem("Version and Spaces", null, !v_DefineMenuItemAsMethod);
+            Delegates.MenuItem showVersion = new Delegates.MenuItem("Show Version", Methods.ShowVersion_LaunchedMethod, v_DefineMenuItemAsMethod);
+            Delegates.MenuItem countSpaces = new Delegates.MenuItem("Count Spaces", Methods.CountSpacesOfSentence_LaunchedMethod, v_DefineMenuItemAsMethod);
             showVersionAndSpaces.AddMethodToMenuItem(showVersion);
             showVersionAndSpaces.AddMethodToMenuItem(countSpaces);
             Delegates.MainMenu mainMenu = new Delegates.MainMenu("Delegates Main Menu");

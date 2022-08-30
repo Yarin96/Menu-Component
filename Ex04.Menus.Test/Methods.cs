@@ -1,11 +1,10 @@
 ﻿using System;
+using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
     internal class Methods
     {
-        private const string k_CurrentAppVersion = "Version: 22.3.4.8650";
-
         internal static void CountSpacesOfSentence_LaunchedMethod()
         {
             int numOfSpacesInSentence = 0;
@@ -26,6 +25,7 @@ namespace Ex04.Menus.Test
 
         internal static void ShowVersion_LaunchedMethod()
         {
+            const string k_CurrentAppVersion = "Version: 22.3.4.8650";
             Console.WriteLine(k_CurrentAppVersion);
         }
 
