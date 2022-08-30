@@ -7,15 +7,15 @@ namespace Ex04.Menus.Delegates
     {
         public event Action LaunchedMethod;
 
-        private string m_MenuItemName;
-        private bool m_IsMenuItemMethod;
-        private List<MenuItem> m_MenuItems;
+        private readonly string r_MenuItemName;
+        private readonly bool r_IsMenuItemMethod;
+        private readonly List<MenuItem> r_MenuItems;
 
         public MenuItem(string i_MenuItemName, Action i_MethodToInvoke, bool i_IsMenuItemMethod)
         {
-            m_MenuItems = new List<MenuItem>();
-            m_MenuItemName = i_MenuItemName;
-            m_IsMenuItemMethod = i_IsMenuItemMethod;
+            r_MenuItems = new List<MenuItem>();
+            r_MenuItemName = i_MenuItemName;
+            r_IsMenuItemMethod = i_IsMenuItemMethod;
             checkIfMenuItemIsMethodAndAddAsListener(i_MethodToInvoke, i_IsMenuItemMethod);
         }
 
@@ -26,22 +26,22 @@ namespace Ex04.Menus.Delegates
 
         public string MenuItemName
         {
-            get { return m_MenuItemName; }
+            get { return r_MenuItemName; }
         }
 
         public bool IsMenuItemMethod
         {
-            get { return m_IsMenuItemMethod; }
+            get { return r_IsMenuItemMethod; }
         }
 
         public List<MenuItem> MenuItems
         {
-            get { return m_MenuItems; }
+            get { return r_MenuItems; }
         }
 
         public void AddMethodToMenuItem(MenuItem i_MenuItemMethod)
         {
-            m_MenuItems.Add(i_MenuItemMethod);
+            r_MenuItems.Add(i_MenuItemMethod);
         }
 
         internal void ActivateMenuItemMethod()

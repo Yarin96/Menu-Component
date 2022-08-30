@@ -6,20 +6,20 @@ namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
+        private readonly string r_RootMenuTitle;
+        private readonly StringBuilder r_CurrentMenuDetailsMessage;
         private string m_CurrentMenuTitle;
-        private string m_RootMenuTitle;
         private string m_PrevMenuTitle;
-        private StringBuilder m_CurrentMenuDetailsMessage;
         private List<MenuItem> m_PrevMenuItems;
         private List<MenuItem> m_CurrentMenuItems;
 
         public MainMenu(string i_MainMenuTitle)
         {
+            r_RootMenuTitle = i_MainMenuTitle;
             m_CurrentMenuTitle = i_MainMenuTitle;
-            m_RootMenuTitle = i_MainMenuTitle;
             m_CurrentMenuItems = new List<MenuItem>();
             m_PrevMenuItems = new List<MenuItem>();
-            m_CurrentMenuDetailsMessage = new StringBuilder();
+            r_CurrentMenuDetailsMessage = new StringBuilder();
         }
 
         public void AddMenuItemToMainMenu(MenuItem i_MenuItem)
@@ -63,7 +63,7 @@ namespace Ex04.Menus.Delegates
                 }
                 while (true);
 
-                if (m_CurrentMenuTitle == m_RootMenuTitle)
+                if (m_CurrentMenuTitle == r_RootMenuTitle)
                 {
                     exitProgram();
                 }
@@ -92,21 +92,21 @@ namespace Ex04.Menus.Delegates
 
         private void drawMenu()
         {
-            m_CurrentMenuDetailsMessage.Clear();
-            string exitOrBackMessage = m_CurrentMenuTitle == m_RootMenuTitle ? "Exit" : "Back";
-            m_CurrentMenuDetailsMessage.AppendLine(string.Format("**{0}**", m_CurrentMenuTitle));
-            m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
+            r_CurrentMenuDetailsMessage.Clear();
+            string exitOrBackMessage = m_CurrentMenuTitle == r_RootMenuTitle ? "Exit" : "Back";
+            r_CurrentMenuDetailsMessage.AppendLine(string.Format("**{0}**", m_CurrentMenuTitle));
+            r_CurrentMenuDetailsMessage.AppendLine("----------------------------");
 
             for (int i = 0; i < m_CurrentMenuItems.Count; i++)
             {
-                m_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].MenuItemName));
+                r_CurrentMenuDetailsMessage.AppendLine(string.Format(i + 1 + " -> " + m_CurrentMenuItems[i].MenuItemName));
             }
 
-            m_CurrentMenuDetailsMessage.AppendLine(string.Format("0 -> {0}", exitOrBackMessage));
-            m_CurrentMenuDetailsMessage.AppendLine("----------------------------");
-            m_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
+            r_CurrentMenuDetailsMessage.AppendLine(string.Format("0 -> {0}", exitOrBackMessage));
+            r_CurrentMenuDetailsMessage.AppendLine("----------------------------");
+            r_CurrentMenuDetailsMessage.AppendLine(string.Format("Enter your request: (1 to {0} or press '0' to {1}).", m_CurrentMenuItems.Count, exitOrBackMessage));
 
-            Console.WriteLine(m_CurrentMenuDetailsMessage.ToString());
+            Console.WriteLine(r_CurrentMenuDetailsMessage.ToString());
         }
 
         private void redrawMenu()
